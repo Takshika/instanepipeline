@@ -1,7 +1,7 @@
 node {
-    // checkout(scm)
-    scmVars = checkout(scm)
-    cat scmVars
+    checkout scm
+    // scmVars = checkout(scm)
+    // cat scmVars
     // branchName = scmVars.GIT_BRANCH
     // cat branchName
     loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
