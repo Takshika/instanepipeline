@@ -1,5 +1,7 @@
 node {
     checkout(scm)
+    def scmVars = checkout scm
+    def branchName = scmVars.GIT_BRANCH
     loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
     withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
@@ -7,13 +9,13 @@ node {
             sh "make BRANCH='${BRANCH_NAME}' build-CF"
         }
 
-        // stage ('CF Templates Validation'){
-        //     sh "make BRANCH='${BRANCH_NAME}' validate-CF"
-        // }
+        stage ('CF Templates Validation'){
+            sh "make BRANCH='${BRANCH_NAME}' validate-CF"
+        }
 
-        // stage ('CF Templates Deployment'){
-        //     sh "make BRANCH='${BRANCH_NAME}' deploy-CF" 
-        // }
+        stage ('CF Templates Deployment'){
+            sh "make BRANCH='${BRANCH_NAME}' deploy-CF" 
+        }
 
         // stage ('Instance Validation'){
         //     sh "make BRANCH='${BRANCH_NAME}' validate-instance" 
