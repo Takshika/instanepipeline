@@ -1,0 +1,120 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "NON PROD IAM ROLE",
+    "Parameters" : {
+      "Ec2instancetype" : {
+        "Type" : "String",
+        "Default" : "t2.micro",
+        "AllowedValues" : ["t2.micro", "m1.small", "m1.large"],
+        "Description" : "Enter t2.micro, m1.small, or m1.large. Default is t2.micro."
+      },
+      "InstanceAMI" : {
+        "Description" : "AMI to use for instances.",
+        "Default" : "ami-00b847e6e1cf1e1a3",
+        "Type" : "String"
+      },
+      "EC2KeyPair":{
+        "Type": "AWS::EC2::KeyPair::KeyName",
+        "Default": "jenkins",
+        "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance"
+      },
+      "VPCId":{
+        "Type": "AWS::EC2::VPC::Id"
+      }
+      
+    },
+    "Resources" : {
+        "INSTANCEIAMROLE": {
+                "Type": "AWS::IAM::Role",
+                "Properties": {
+                    "RoleName": "Mediawiki-iam",
+                    "AssumeRolePolicyDocument": {
+                        "Version": "2012-10-17",
+                        "Statement": [
+                            {
+                                "Effect": "Allow",
+                                "Principal": {
+                                    "Service": [
+                                        "ec2.amazonaws.com"
+                                    ]
+                                },
+                                "Action": [
+                                    "sts:AssumeRole"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+        "InstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "InstanceProfileName": "Mediawiki-instanceprofile-iam",
+                "Path": "/",
+                "Roles": [
+                    {
+                        "Ref": "INSTANCEIAMROLE"
+                    }
+                ]
+            }
+        },
+        "InstanceSecurityGroup" : {
+            "Type" : "AWS::EC2::SecurityGroup",
+            "Properties" : {
+                "GroupName" : "mediawiki-sg",
+                "GroupDescription" : "Security Group for Instance",
+                "VpcId": "vpc-5bf43c3d",
+                "SecurityGroupIngress" : [
+                    { "IpProtocol" : "tcp", "FromPort" : 443, "ToPort" : 443, "CidrIp" : "0.0.0.0/0"},
+                    { "IpProtocol" : "tcp", "FromPort" : 80, "ToPort" : 80, "CidrIp" : "0.0.0.0/0"},
+                    { "IpProtocol" : "tcp", "FromPort" : 22, "ToPort" : 22, "CidrIp" : "0.0.0.0/0"}
+                ],
+                "SecurityGroupEgress" : [
+                    { "IpProtocol" : "-1", "CidrIp" : "0.0.0.0/0"} 
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "mediawiki-sg"
+                    }
+                ]
+            }
+        },
+        "Ec2Instance" : {
+            "Type" : "AWS::EC2::Instance", 
+            "Properties" : {
+                "AvailabilityZone": "us-east-1a",
+                "KeyName" :"jenkins",
+                "ImageId" : { "Ref" : "InstanceAMI" },
+                "InstanceType" : { "Ref" : "Ec2instancetype" },
+                "SecurityGroupIds" : [{"Ref" : "InstanceSecurityGroup"}],
+                "Tags":[
+                    {
+                        "Key": "Name",
+                        "Value":"mediawiki-instance"
+                    }
+                ]
+            }
+    }
+
+},
+
+    "Outputs" : {
+
+        "InstanceSecurityGroup" : {
+            "Description" : "mediawiki-sg security group defination",
+            "Value" : { "Ref" : "InstanceSecurityGroup" },
+            "Export": {"Name": "InstanceSecurityGroup"}
+        },
+        "InstanceProfile" : {
+            "Description" : "Mediawiki-iam role definition",
+            "Value" : { "Ref" : "InstanceProfile" },
+            "Export": {"Name": "InstanceProfile"}
+        },
+        "Ec2Instance" : {
+            "Description" : "Mediawiki instance",
+            "Value" : { "Ref" : "Ec2Instance" },
+            "Export": {"Name": "Ec2Instance"}
+        }
+}
+}
