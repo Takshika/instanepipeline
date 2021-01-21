@@ -9,7 +9,7 @@ node {
         }
 
         stage ('CF Templates Validation'){
-            sh "make BRANCH='${BRANCH_NAME}' validate-CF"
+            sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "validate"'
         }
 
         // stage ('CF Templates Deployment'){
