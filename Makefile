@@ -2,12 +2,12 @@
 
 build-CF:
 	${INFO} "Building Cloudformation Templates"
-	@ansible-playbook site.yml --tags "prepare"
+	ansible-playbook site.yml --tags "prepare"
 	${INFO} "Built Cloudformation Templates"
 
 validate-CF:
 	${INFO} "Validating Cloudformation Templates"
-	@ansible-playbook site.yml --tags "validate" 
+	ansible-playbook site.yml --tags "validate" 
 	${INFO} "Validated Cloudformation Templates"
 
 deploy-CF:
