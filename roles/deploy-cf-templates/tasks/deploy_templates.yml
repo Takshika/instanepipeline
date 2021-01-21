@@ -8,5 +8,5 @@
     template_url: https://takshika-cftemplate.s3.amazonaws.com/secret.yml
     template_parameters: 
       KeyName: "test"
-    # tags:
-    #   Name: "{{ stack_prefix }}"
+    tags:
+      Name: MediaWiki-CICD-PIPELINE
