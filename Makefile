@@ -9,7 +9,7 @@ LOG_STDERR = 2>> tmp/stderr.log
 
 build-CF:
 	${INFO} "Building Cloudformation Templates"
-	@ansible-playbook site.yml --extra-vars="env=$(environment)" --tags "prepare"
+	ansible-playbook site.yml --extra-vars="env=$(environment)" --tags "prepare"
 	${INFO} "Built Cloudformation Templates"
 
 validate-CF:
