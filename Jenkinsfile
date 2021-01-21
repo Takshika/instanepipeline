@@ -16,7 +16,7 @@ node {
         }
 
         stage ('Instance Validation'){
-            sh 'python scripts/update_hosts.py --extra-vars "@vaults/secret.yml", region=us-east-1'
+            sh 'python scripts/update_hosts.py --extra-vars "@vaults/secret.yml"'
         }
 
         // stage ('Meduawiki Installation'){
