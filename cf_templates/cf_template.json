@@ -15,7 +15,7 @@
       },
       "EC2KeyPair":{
         "Type": "AWS::EC2::KeyPair::KeyName",
-        "Default": "jenkins",
+        "Default": "test",
         "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance"
       }
       
@@ -26,7 +26,7 @@
             "Type" : "AWS::EC2::Instance", 
             "Properties" : {
                 "AvailabilityZone": "us-east-1a",
-                "KeyName" :{ "Ref" : "EC2KeyPair" },
+                "KeyName" :"test",
                 "ImageId" : { "Ref" : "InstanceAMI" },
                 "InstanceType" : { "Ref" : "Ec2instancetype" },
                 "Tags":[
