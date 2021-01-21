@@ -1,7 +1,7 @@
 ---
 - name: Deploying cloud formation template via ansbile stack
   cloudformation:
-    stack_name: MediaWiki-CICD-PIPELINE
+    stack_name: MediaWiki-CICD-PIPELINE1
     state: present
     disable_rollback: True
     # template_url: https://"{{ bucketname }}".s3.amazonaws.com/"{{subdirectory}}"/"{{master_template}}"
@@ -9,4 +9,4 @@
     template_parameters: 
       KeyName: "test"
     tags:
-      Name: MediaWiki-CICD-PIPELINE
+      Name: MediaWiki-CICD-PIPELINE1

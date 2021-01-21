@@ -20,7 +20,7 @@
       },
       "VPCId":{
         "Type": "AWS::EC2::VPC::Id",
-        "Default": "vpc-5bf43c3d (172.31.0.0/16)"        
+        "Default": "vpc-5bf43c3d"        
       }
       
     },
