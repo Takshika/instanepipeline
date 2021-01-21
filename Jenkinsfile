@@ -8,9 +8,9 @@ node {
             // sh "ansible-playbook site.yml --extra-vars="BRANCH_NAME=$(BRANCH_NAME)" --tags "prepare""
         }
 
-        // stage ('CF Templates Validation'){
-        //     sh "make BRANCH='${BRANCH_NAME}' validate-CF"
-        // }
+        stage ('CF Templates Validation'){
+            sh "make BRANCH='${BRANCH_NAME}' validate-CF"
+        }
 
         // stage ('CF Templates Deployment'){
         //     sh "make BRANCH='${BRANCH_NAME}' deploy-CF" 
