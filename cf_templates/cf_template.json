@@ -87,6 +87,7 @@
                 "KeyName" :"jenkins",
                 "ImageId" : { "Ref" : "InstanceAMI" },
                 "InstanceType" : { "Ref" : "Ec2instancetype" },
+                "IamInstanceProfile": {"Ref": "InstanceProfile"},
                 "SecurityGroupIds" : [{"Ref" : "InstanceSecurityGroup"}],
                 "Tags":[
                     {
