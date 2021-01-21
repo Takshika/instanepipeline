@@ -12,9 +12,9 @@ node {
             sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "validate"'
         }
 
-        // stage ('CF Templates Deployment'){
-        //     sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "deploy"'
-        // }
+        stage ('CF Templates Deployment'){
+            sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "deploy"'
+        }
 
         // stage ('Instance Validation'){
         //     sh "make BRANCH='${BRANCH_NAME}' validate-instance" 
