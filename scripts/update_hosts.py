@@ -10,12 +10,12 @@ def update_hosts(Stack_Name):
     stack_resources = client.list_stack_resources(StackName=Stack_Name)
     hosts = open(os.path.dirname(__file__) + '/../hosts',"w")
     hosts.write('[instance]')
+    print StackResourceSummaries
     for resource in stack_resources['StackResourceSummaries']:
         if resource['ResourceType'] == 'AWS::CloudFormation::Stack':
             update_hosts(resource['PhysicalResourceId'].split('/')[1])
         elif resource['ResourceType'] == 'AWS::EC2::Instance' and resource['ResourceStatus'] == 'CREATE_COMPLETE':
             instance = ec2.Instance(resource['PhysicalResourceId'])
-            print StackResourceSummaries
             hosts.write('\n')
             hosts.write(instance.private_ip_address)
     hosts.close()
