@@ -6,6 +6,7 @@
     disable_rollback: True
     # template_url: https://"{{ bucketname }}".s3.amazonaws.com/"{{subdirectory}}"/"{{master_template}}"
     template_url: https://takshika-cftemplate.s3.amazonaws.com/secret.yml
-    template_parameters: "{{ lookup('file', 'parameters/instance_parameters.json') | from_json }}"
+    template_parameters: 
+      KeyName: "test"
     # tags:
     #   Name: "{{ stack_prefix }}"
