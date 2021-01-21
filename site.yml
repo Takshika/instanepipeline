@@ -29,7 +29,7 @@
 - name: Install mediawiki
   hosts: "{{ env }}"
   roles:
-    - install-mediawiki
+    - install_mediawiki
   gather_facts: false
   become: true
   tags: install-mediawiki
