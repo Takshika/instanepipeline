@@ -16,7 +16,7 @@ node {
         }
 
         stage ('Instance Validation'){
-            sh "python scripts/update_hosts.py "$(STACK_PREFIX)" --extra-vars "@vaults/secret.yml"" 
+            sh "python scripts/update_hosts.py "STACK_PREFIX=$STACK_PREFIX" --extra-vars "@vaults/secret.yml"" 
         }
 
         // stage ('Meduawiki Installation'){
