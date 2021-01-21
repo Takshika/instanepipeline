@@ -5,7 +5,7 @@ import os
 Stack_Name = "MediaWiki-CICD-PIPELINE"
 
 def update_hosts(Stack_Name):
-    client = boto3.client('cloudformation')
+    client = boto3.client('cloudformation', region_name='us-east-1')
     ec2 = boto3.resource('ec2')
     stack_resources = client.list_stack_resources(StackName=Stack_Name)
     hosts = open(os.path.dirname(__file__) + '/../hosts',"w")
