@@ -1,6 +1,6 @@
 # Prepare CloudFormation Templates
 - name: Preparing CloudFormation Templates
-  hosts: #{{ env }}
+  hosts: localhost
   roles:
     - prepare-cf-templates
   gather_facts: false 
