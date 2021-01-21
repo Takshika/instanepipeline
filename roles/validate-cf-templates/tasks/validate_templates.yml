@@ -1,11 +1,11 @@
 ---
 - name: "Step 1 - Validate cloudformation templates using aws command"
-  command: aws cloudformation validate-template --template-url https://s3.amazonaws.com/{{ bucketname }}/{{ subdirectory }}/{{ item | basename }}
+  # command: aws cloudformation validate-template --template-url https://s3.amazonaws.com/{{ bucketname }}/{{ subdirectory }}/{{ item | basename }}
+  command: aws cloudformation validate-template --template-url https://takshika-cftemplate.s3.amazonaws.com/CICD/cf_template.json
   register: validate_results
   with_fileglob: 
    - cf_templates/*.json
    - cf_templates/*.yml
-   - cf_templates/*.yaml
 
 - name: "Delete temporary files - post"  
   file:
