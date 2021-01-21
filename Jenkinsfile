@@ -1,11 +1,11 @@
 node {
     checkout(scm)
-    scmVars = checkout(scm)
-    parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
+    // scmVars = checkout(scm)
+    // parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
     sh 'env'
-    echo "scmVars.BUILD_NUMBER"
-    echo "scmVars.BRANCH_NAME"
-    loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
+    echo "env.BUILD_NUMBER"
+    echo "env.BRANCH_NAME"
+    // loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         // stage ('CF Templates Build'){
