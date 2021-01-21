@@ -1,10 +1,10 @@
 node {
     checkout(scm)
     // scmVars = checkout(scm)
-    // parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
+    parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
     sh 'env'
     echo "env.BUILD_NUMBER"
-    echo "env.BRANCH_NAME"
+    echo "params.BRANCH_NAME"
     // loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
