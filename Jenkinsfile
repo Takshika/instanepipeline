@@ -4,7 +4,7 @@ node {
     withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){
-            sh 'ansible-playbook site.yml --tags "prepare"'
+            sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME" --tags "prepare"'
         }
 
         stage ('CF Templates Validation'){
