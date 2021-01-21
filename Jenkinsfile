@@ -26,7 +26,7 @@ node {
         // stage ('Validate Validatation'){
         //     sh "make BRANCH='${BRANCH_NAME}' validate-mediawiki"
         // }
-    // } 
+    } 
 }    
 
 def loadEnvironmentVariables(path){ 
