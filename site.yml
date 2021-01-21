@@ -6,32 +6,32 @@
   gather_facts: false 
   tags: prepare
 
-# Validate CloudFormation Templates
-- name: Validating CloudFormation Templates
-  roles:
-    - validate-cf-templates 
-  gather_facts: false
-  tags: validate
+# # Validate CloudFormation Templates
+# - name: Validating CloudFormation Templates
+#   roles:
+#     - validate-cf-templates 
+#   gather_facts: false
+#   tags: validate
 
-# Deploy CloudFormation Templates
-- name: Deploying CloudFormation Templates  
-  roles:
-    - deploy-cf-templates
-  gather_facts: false
-  tags: deploy
+# # Deploy CloudFormation Templates
+# - name: Deploying CloudFormation Templates  
+#   roles:
+#     - deploy-cf-templates
+#   gather_facts: false
+#   tags: deploy
 
-# Install Mediawiki
-- name: Install mediawiki
-  roles:
-    - install-mediawiki
-  gather_facts: false
-  become: true
-  tags: install-mediawiki
+# # Install Mediawiki
+# - name: Install mediawiki
+#   roles:
+#     - install-mediawiki
+#   gather_facts: false
+#   become: true
+#   tags: install-mediawiki
 
-  # Validate Mediawiki
-- name: Validate Mediawiki
-  roles:
-    - validate-mediawiki
-  gather_facts: false
-  become: true
-  tags: validate-mediawiki
+#   # Validate Mediawiki
+# - name: Validate Mediawiki
+#   roles:
+#     - validate-mediawiki
+#   gather_facts: false
+#   become: true
+#   tags: validate-mediawiki
