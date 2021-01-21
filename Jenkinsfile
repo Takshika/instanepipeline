@@ -1,12 +1,10 @@
 node {
-    // git branch: 'NONPROD',
-    //   url: 'git@github.com:Takshika/instanepipeline.git'
     checkout scm
     // scmVars = checkout(scm)
     // cat scmVars
     // branchName = scmVars.GIT_BRANCH
     // cat branchName
-    // loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
+    loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         // stage ('CF Templates Build'){
