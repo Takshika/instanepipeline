@@ -15,9 +15,9 @@ node {
             sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "deploy"'
         }
 
-        // stage ('Instance Validation'){
-        //     sh "make BRANCH='${BRANCH_NAME}' validate-instance" 
-        // }
+        stage ('Instance Validation'){
+            sh "make BRANCH='${BRANCH_NAME}' validate-instance" 
+        }
 
         // stage ('Meduawiki Installation'){
         //     sh "make BRANCH='${BRANCH_NAME}' install-mediawiki"
