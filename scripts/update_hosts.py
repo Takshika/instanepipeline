@@ -15,7 +15,7 @@ def update_hosts(Stack_Name):
             update_hosts(resource['PhysicalResourceId'].split('/')[1])
         elif resource['ResourceType'] == 'AWS::EC2::Instance' and resource['ResourceStatus'] == 'CREATE_COMPLETE':
             instance = ec2.Instance(resource['PhysicalResourceId'])
-            print 'StackResourceSummaries'
+            print StackResourceSummaries
             hosts.write('\n')
             hosts.write(instance.private_ip_address)
     hosts.close()
