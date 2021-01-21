@@ -17,10 +17,12 @@ node {
 
         stage ('Instance Validation'){
             sh 'python scripts/update_hosts.py --extra-vars "@vaults/secret.yml"'
+            sh 'chmod +x scripts/vault.py'
         }
 
         stage ('Meduawiki Installation'){
-            sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "install-mediawiki"'
+            // sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "install-mediawiki"'
+            sh 'ansible-playbook site.yml --vault-password-file scripts/vault.py --extra-vars "@vaults/secret.yml" -i hosts --tags=install-mediawiki'
         }
 
         // stage ('Validate Validatation'){
