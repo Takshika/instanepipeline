@@ -4,6 +4,7 @@ node {
     // cat scmVars
     // branchName = scmVars.GIT_BRANCH
     // cat branchName
+    sh env
     loadEnvironmentVariables("parameters/${env.BRANCH_NAME}.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
