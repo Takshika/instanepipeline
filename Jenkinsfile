@@ -33,7 +33,7 @@ node {
         //     sh "make BRANCH='${BRANCH_NAME}' validate-mediawiki"
         // }
     } 
-// }    
+}    
 
 def loadEnvironmentVariables(path){ 
     def props = readProperties  file: path
