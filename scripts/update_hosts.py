@@ -10,7 +10,6 @@ def update_hosts(Stack_Name):
     stack_resources = client.list_stack_resources(StackName=Stack_Name)
     hosts = open(os.path.dirname(__file__) + '/../hosts',"w")
     hosts.write('[instance]')
-    print stack_resources
     for resource in stack_resources['StackResourceSummaries']:
         if resource['ResourceType'] == 'AWS::CloudFormation::Stack':
             update_hosts(resource['PhysicalResourceId'].split('/')[1])
@@ -18,7 +17,7 @@ def update_hosts(Stack_Name):
             instance = ec2.Instance(resource['PhysicalResourceId'])
             print instance.public_ip_address
             hosts.write('\n')
-            hosts.write(instance.private_ip_address)
+            hosts.write(instance.public_ip_address)
     hosts.close()
 
 update_hosts(Stack_Name)
