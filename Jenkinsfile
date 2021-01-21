@@ -1,16 +1,16 @@
 node {
     checkout(scm)
     // scmVars = checkout(scm)
-    parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
+    // parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
     sh 'env'
     echo "env.BUILD_NUMBER"
     echo "params.BRANCH_NAME"
-    // loadEnvironmentVariables("parameters/${BRANCH_NAME}.properties") 
+    loadEnvironmentVariables("parameters/MONPROD.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
-        // stage ('CF Templates Build'){
-        //     sh "make BRANCH='${BRANCH_NAME}' build-CF"
-        // }
+        stage ('CF Templates Build'){
+            sh "make BRANCH='${BRANCH_NAME}' build-CF"
+        }
 
         // stage ('CF Templates Validation'){
         //     sh "make BRANCH='${BRANCH_NAME}' validate-CF"
