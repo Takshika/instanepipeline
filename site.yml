@@ -13,7 +13,7 @@
   roles:
     - validate-cf-templates 
   gather_facts: false
-    become: true
+  become: true
   tags: validate
 
 # Deploy CloudFormation Templates
