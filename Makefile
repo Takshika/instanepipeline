@@ -1,5 +1,12 @@
 .PHONY: install-mediawiki validate-mediawiki validate-instance build-CF validate-CF deploy-CF 
 
+#Project Variables
+DOCKER_IMAGE := docker_image/director
+CONTAINER_NAME := instance
+INSTANCE_NAME = `cat tmp/instancename`
+LOG_STDOUT = 1>> tmp/stdout.log
+LOG_STDERR = 2>> tmp/stderr.log 
+
 build-CF:
 	${INFO} "Building Cloudformation Templates"
 	ansible-playbook site.yml --tags "prepare"
