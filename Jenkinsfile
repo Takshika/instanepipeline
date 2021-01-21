@@ -17,6 +17,7 @@ node {
 
         stage ('Instance Validation'){
             sh 'python scripts/update_hosts.py --extra-vars "@vaults/secret.yml"'
+            sh 'printenv'
             sh 'chmod +x scripts/vault.py'
         }
 
