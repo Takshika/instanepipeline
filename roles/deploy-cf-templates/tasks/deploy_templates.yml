@@ -1,14 +1,12 @@
 ---
-- include_vars: ../../../group_vars/all.yml
-
 - name: Deploying cloud formation template via ansbile stack
   cloudformation:
     stack_name: MediaWiki-CICD-PIPELINE
     state: present
     disable_rollback: True
     region: us-east-1
-    template_url: https://"{{ bucketname }}".s3.amazonaws.com/"{{ subdirectory }}"/"{{ master_template }}"
-    # template_url: https://takshika-cftemplate.s3.amazonaws.com/cf_template.json
+    # template_url: https://"{{ bucketname }}".s3.amazonaws.com/"{{ subdirectory }}"/"{{ master_template }}"
+    template_url: https://takshika-cftemplate.s3.amazonaws.com/cf_template.json
     tags:
       Name: MediaWiki-CICD-PIPELINE
   
