@@ -19,45 +19,13 @@
         "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance"
       },
       "VPCId":{
-        "Type": "AWS::EC2::VPC::Id"
+        "Type": "AWS::EC2::VPC::Id",
+        "Default": "vpc-5bf43c3d (172.31.0.0/16)"        
       }
       
     },
     "Resources" : {
-        "INSTANCEIAMROLE": {
-                "Type": "AWS::IAM::Role",
-                "Properties": {
-                    "RoleName": "Mediawiki-iam",
-                    "AssumeRolePolicyDocument": {
-                        "Version": "2012-10-17",
-                        "Statement": [
-                            {
-                                "Effect": "Allow",
-                                "Principal": {
-                                    "Service": [
-                                        "ec2.amazonaws.com"
-                                    ]
-                                },
-                                "Action": [
-                                    "sts:AssumeRole"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            },
-        "InstanceProfile": {
-            "Type": "AWS::IAM::InstanceProfile",
-            "Properties": {
-                "InstanceProfileName": "Mediawiki-instanceprofile-iam",
-                "Path": "/",
-                "Roles": [
-                    {
-                        "Ref": "INSTANCEIAMROLE"
-                    }
-                ]
-            }
-        },
+
         "InstanceSecurityGroup" : {
             "Type" : "AWS::EC2::SecurityGroup",
             "Properties" : {
@@ -87,7 +55,6 @@
                 "KeyName" :"jenkins",
                 "ImageId" : { "Ref" : "InstanceAMI" },
                 "InstanceType" : { "Ref" : "Ec2instancetype" },
-                "IamInstanceProfile": {"Ref": "InstanceProfile"},
                 "SecurityGroupIds" : [{"Ref" : "InstanceSecurityGroup"}],
                 "Tags":[
                     {
