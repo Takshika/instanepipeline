@@ -4,7 +4,6 @@ node {
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){
-            sh 'export ANSIBLE_ASK_SUDO_PASS=true'
             sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "prepare"'
             // sh "ansible-playbook site.yml --extra-vars="BRANCH_NAME=$(BRANCH_NAME)" --tags "prepare""
         }
