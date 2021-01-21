@@ -4,7 +4,7 @@
   roles:
     - prepare-cf-templates
   gather_facts: false 
-  become_user: root
+  become: true
   tags: prepare
 
 # # Validate CloudFormation Templates
