@@ -4,3 +4,4 @@ bucketname: takshika-cftemplate
 subdirectory: CICD/
 stack_name: "{{ stack_prefix }}"
 VAULT_DIRECTORY: s3://takshika-cftemplate/
+ansible_sudo_pass: test
