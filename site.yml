@@ -5,7 +5,7 @@
     - prepare-cf-templates
   gather_facts: false 
   become: true
-  become_user: test
+  become_user: ec2-user
   tags: prepare
 
 # # Validate CloudFormation Templates
