@@ -1,7 +1,7 @@
 node {
-    checkout scm
-    // scmVars = checkout(scm)
-    // cat scmVars
+    checkout(scm)
+    scmVars = checkout(scm)
+    echo "scmVars.BRANCH_NAME"
     // branchName = scmVars.GIT_BRANCH
     // cat branchName
     sh 'env'
