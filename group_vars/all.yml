@@ -6,3 +6,4 @@ stack_name: "{{ stack_prefix }}"
 VAULT_DIRECTORY: s3://takshika-cftemplate/
 ansible_ssh_pass: test
 region: us-east-1d
+STACK_PREFIX: MediaWiki-CICD-PIPELINE
