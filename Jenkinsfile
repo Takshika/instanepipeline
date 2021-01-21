@@ -19,9 +19,9 @@ node {
             sh 'python scripts/update_hosts.py --extra-vars "@vaults/secret.yml"'
         }
 
-        // stage ('Meduawiki Installation'){
-        //     sh "make BRANCH='${BRANCH_NAME}' install-mediawiki"
-        // }
+        stage ('Meduawiki Installation'){
+            sh "ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags install-mediawiki"
+        }
 
         // stage ('Validate Validatation'){
         //     sh "make BRANCH='${BRANCH_NAME}' validate-mediawiki"

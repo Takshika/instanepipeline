@@ -25,13 +25,13 @@
   become: true
   tags: deploy
 
-# # Install Mediawiki
-# - name: Install mediawiki
-#   roles:
-#     - install-mediawiki
-#   gather_facts: false
-#   become: true
-#   tags: install-mediawiki
+# Install Mediawiki
+- name: Install mediawiki
+  roles:
+    - install-mediawiki
+  gather_facts: false
+  become: true
+  tags: install-mediawiki
 
 #   # Validate Mediawiki
 # - name: Validate Mediawiki
