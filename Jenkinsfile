@@ -1,7 +1,7 @@
 node {
-    git branch: 'NONPROD',
-      url: 'git@github.com:Takshika/instanepipeline.git'
-    // checkout(scm)
+    // git branch: 'NONPROD',
+    //   url: 'git@github.com:Takshika/instanepipeline.git'
+    checkout scm
     // scmVars = checkout(scm)
     // cat scmVars
     // branchName = scmVars.GIT_BRANCH
