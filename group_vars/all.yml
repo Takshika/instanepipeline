@@ -5,3 +5,7 @@ subdirectory: CICD/
 stack_name: "{{ stack_prefix }}"
 VAULT_DIRECTORY: s3://takshika-cftemplate/
 ansible_sudo_pass: test
+Ansible_connection: ssh
+Ansible_ssh_user: test
+Ansible_ssh_pass: test
+Ansible_become_pass: test
