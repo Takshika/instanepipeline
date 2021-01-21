@@ -1,7 +1,7 @@
 --- 
 master_template: cf_template.yaml
 bucketname: takshika-cftemplate
-subdirectory: CICD/
+subdirectory: CICD
 stack_name: "{{ stack_prefix }}"
 VAULT_DIRECTORY: s3://takshika-cftemplate/
 ansible_ssh_pass: test
