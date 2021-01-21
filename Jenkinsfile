@@ -9,7 +9,7 @@ node {
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){
-            sh "ansible-playbook site.yml --tags "prepare""
+            sh "make BRANCH='${BRANCH_NAME}' build-CF"
         }
 
         // stage ('CF Templates Validation'){
