@@ -20,7 +20,7 @@ node {
         }
 
         stage ('Meduawiki Installation'){
-            sh "ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags install-mediawiki"
+            sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "install-mediawiki"'
         }
 
         // stage ('Validate Validatation'){
