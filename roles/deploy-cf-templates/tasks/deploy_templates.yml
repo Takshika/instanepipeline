@@ -5,7 +5,7 @@
     state: present
     disable_rollback: True
     # template_url: https://"{{ bucketname }}".s3.amazonaws.com/"{{subdirectory}}"/"{{master_template}}"
-    template_url: s3://takshika-cftemplate/cf_template.json
+    template_url: https://takshika-cftemplate.s3.amazonaws.com/cf_template.json
     tags:
       Name: MediaWiki-CICD-PIPELINE1
   
