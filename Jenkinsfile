@@ -3,9 +3,9 @@ node {
     // scmVars = checkout(scm)
     // parameters { string (name: BRANCH_NAME, defaultValue:'NONPROD')}
     sh 'env'
-    echo "env.BUILD_NUMBER"
-    echo "params.BRANCH_NAME"
-    loadEnvironmentVariables("parameters/MONPROD.properties") 
+    sh "echo "env.BUILD_NUMBER""
+    sh 'pwd'
+    loadEnvironmentVariables("parameters/NONPROD.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){
