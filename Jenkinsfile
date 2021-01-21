@@ -1,7 +1,7 @@
 node {
     checkout(scm)
     loadEnvironmentVariables("parameters/NONPROD.properties") 
-    withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
+    // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){
             sh 'ansible-playbook site.yml -e "env=$BRANCH_NAME"  --tags "prepare"'
