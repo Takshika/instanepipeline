@@ -27,6 +27,7 @@
 
 # Install Mediawiki
 - name: Install mediawiki
+  hosts: "{{ env }}"
   roles:
     - install-mediawiki
   gather_facts: false
