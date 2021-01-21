@@ -1,4 +1,3 @@
-SHELL: /bin/sh
 .PHONY: install-mediawiki validate-mediawiki validate-instance build-CF validate-CF deploy-CF 
 
 #Project Variables
