@@ -5,7 +5,7 @@ node {
     sh 'env'
     sh 'echo env.BUILD_NUMBER'
     sh 'pwd'
-    loadEnvironmentVariables("parameters/NONPROD.properties") 
+    loadEnvironmentVariables("/var/lib/jenkins/workspace/CICD-Pipeline/parameters/NONPROD.properties") 
     // withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){
