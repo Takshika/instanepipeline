@@ -1,29 +1,29 @@
-# Prepare CloudFormation Templates
-- name: Preparing CloudFormation Templates
-  hosts: localhost
-  roles:
-    - prepare-cf-templates
-  gather_facts: false 
-  become: true
-  tags: prepare
+# # Prepare CloudFormation Templates
+# - name: Preparing CloudFormation Templates
+#   hosts: localhost
+#   roles:
+#     - prepare-cf-templates
+#   gather_facts: false 
+#   become: true
+#   tags: prepare
 
-# Validate CloudFormation Templates
-- name: Validating CloudFormation Templates
-  hosts: localhost
-  roles:
-    - validate-cf-templates 
-  gather_facts: false
-  become: true
-  tags: validate
+# # Validate CloudFormation Templates
+# - name: Validating CloudFormation Templates
+#   hosts: localhost
+#   roles:
+#     - validate-cf-templates 
+#   gather_facts: false
+#   become: true
+#   tags: validate
 
-# Deploy CloudFormation Templates
-- name: Deploying CloudFormation Templates  
-  hosts: localhost
-  roles:
-    - deploy-cf-templates
-  gather_facts: false
-  become: true
-  tags: deploy
+# # Deploy CloudFormation Templates
+# - name: Deploying CloudFormation Templates  
+#   hosts: localhost
+#   roles:
+#     - deploy-cf-templates
+#   gather_facts: false
+#   become: true
+#   tags: deploy
 
 # Install Mediawiki
 - name: Install mediawiki
