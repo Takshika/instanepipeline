@@ -1,6 +1,6 @@
 node {
     checkout(scm)
-    loadEnvironmentVariables("parameters/NONPROD.properties") 
+    loadEnvironmentVariables("parameters/NONPROD.properties")  
     withCredentials([usernamePassword(credentialsId: 'vault', passwordVariable: 'VAULT_PASSWORD', usernameVariable: 'VAULT_USER')]) {
        
         stage ('CF Templates Build'){

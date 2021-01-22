@@ -1,6 +1,6 @@
 # Prepare CloudFormation Templates
 - name: Preparing CloudFormation Templates
-  hosts: "{{ env }}"
+  hosts: localhost
   roles:
     - prepare-cf-templates
   gather_facts: false 
@@ -9,7 +9,7 @@
 
 # Validate CloudFormation Templates
 - name: Validating CloudFormation Templates
-  hosts: "{{ env }}"
+  hosts: localhost
   roles:
     - validate-cf-templates 
   gather_facts: false
@@ -18,7 +18,7 @@
 
 # Deploy CloudFormation Templates
 - name: Deploying CloudFormation Templates  
-  hosts: "{{ env }}"
+  hosts: localhost
   roles:
     - deploy-cf-templates
   gather_facts: false
@@ -27,7 +27,7 @@
 
 # Install Mediawiki
 - name: Install mediawiki
-  hosts: "{{ env }}"
+  hosts: localhost
   roles:
     - install_mediawiki
   gather_facts: false
