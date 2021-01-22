@@ -2,7 +2,7 @@
 import boto3
 import sys
 import os
-Stack_Name = "MediaWiki-CICD-PIPELINE"
+Stack_Name = "MediaWiki-CICD-Pipeline-instance"
 
 def update_hosts(Stack_Name):
     client = boto3.client('cloudformation', region_name='us-east-1')
